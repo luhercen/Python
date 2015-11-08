@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+
+For Task 16
+
+"""
+
+FLOATVAR = 0.1
+DECIMALVAR = float(0.1)
+FRACTIONVAR = 1/10
+
+DF_EQUALITY = DECIMALVAR == FRACTIONVAR
+ARE_INEQUAL = DECIMALVAR != FRACTIONVAR != FLOATVAR
+
+print DF_EQUALITY
+print ARE_INEQUAL

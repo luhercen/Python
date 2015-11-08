@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>IS211 Assignment 11 - To Do List</title> 
+
+</head>  
+
+<body>
+  <h1 align="center">IS 211 Assigmmnet 11 - To Do List</h1>
+  <div>
+    <h3>Items:</h3>
+    <table align="center", name="Table" border="7">
+      <tr>
+        <th>Email</th>
+        <th>Task</th>
+        <th>Priority</th>
+      </tr>
+
+      {% for item in todolist %}
+      <tr align="center", valign="middle">
+        <td>{{ item[0] }}</td>
+        <td>{{ item[1] }}</td>
+        <td>{{ item[2] }}</td>
+        <td><form action="/delete" method="post">
+            <input type="text" name='email' hidden="true" value="{{ item[0] }}"/>
+            <input type="text" name='deleteItem' hidden="true" value="{{ item[1] }}"/>
+            <input type="text" name='priority' hidden="true" value="{{ item[2] }}"/>
+            <input type="submit" value="Delete"></input>
+            </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+<br/>
+  </div>
+<center><form>
+  <form action="/submit" method="post">
+      <input type="text" name="email" placeholder="Email"></input>
+      <input type="text" name="newItem" placeholder="Task"></input>
+      <select name="priority">
+        <option disabled value="default">Choose a Priority</option>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <input type="submit" value="Add To Do Item"></input>
+  </form>
+<span style="float:left;">
+  <form action="/clear" method="post">
+    <input type="submit" value="Clear">
+</p>
+  </form>
+</span>
+<span style="float:right;">
+  <form action="/save" method="post">
+    <input type="submit" value="Save">
+</p>
+  </form>
+</span>
+  <h1> </h1>
+
+
+</body>
+</html>
